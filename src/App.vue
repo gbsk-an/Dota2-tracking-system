@@ -1,11 +1,8 @@
 <template>	
 	<!-- Content -->
-	<div class="app">
-		<router-view>
+	<router-view>
 			
-		</router-view>
-	</div>
-	
+	</router-view>	
 </template>
 
 <script>
@@ -32,6 +29,7 @@ export default {
 	--lime: #BBDD00;
 	--orange: #FA7000;
   	--violet: #301070;
+	--ulta-dark-violet: #200050;
 	--dark-violet: rgba(16, 0, 37, 0.25);
 	--dark-violet-alt-3: rgba(16, 0, 37, 0.15);
 	--bright-violet: #7540F0;
@@ -59,12 +57,8 @@ html {
 }
 
 body {
-	background-image: url('@/assets/background.png');
-	background-position: center;
 	font-family: 'Inter', sans-serif;
-}
-.app {
-	background: linear-gradient(0deg, #100025 0%, rgba(196, 196, 196, 0) 100%);    
+	background-color: var(--ulta-dark-violet);
 }
 
 h1 {
@@ -120,5 +114,14 @@ a {
 }
 .flex {
 	flex: 1 1 auto;
+}
+.bg-cover {
+    background-image: linear-gradient(0deg, rgba(32,0,80,1) 40%, rgba(196,196,196,0.4) 100%), url('@/assets/background.png');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 </style>

@@ -25,5 +25,9 @@ export default {
     font-size: 16px;
     line-height: 19px;
     cursor: pointer;
+
+    &:hover {
+        background: var(--lime);
+    }
 }
 </style>

@@ -1,30 +1,37 @@
 <template>
-    <Nav />
-    <div class="wrapper-grid team-page">
-        <div class="team-page_title">
-            <h1>Список команд</h1>
+    <div class="bg-cover">
+        <Nav />
+        <div class="wrapper-grid team-page">
+            <div class="team-page_title">
+                <h1>Список команд</h1>
+            </div>
+            <div class="team-table">
+                <div class="team-table-header">
+                    <div class="team-table-header_tag"><p class="team-table-header_value">Ранг</p></div>
+                    <div class="team-table-header_name"><p class="team-table-header_value">Название команды</p></div>
+                    <div class="team-table-header_rating"><p class="team-table-header_value">Рейтинг</p></div>
+                    <div class="team-table-header_wins"><p class="team-table-header_value">Победы</p></div>
+                    <div class="team-table-header_losses"><p class="team-table-header_value">Проигрыши</p></div>
+                </div>            
+                <TeamTableRow 
+                    v-for="opendotaTeam in opendotaTeams"
+                    :opendotaTeam="opendotaTeam"
+                    :key="opendotaTeam.team_id"
+                    v-if="!isTeamDataLoading"
+                />  
+                <div v-else class="team-table-loading">
+                    <h2>Loading...</h2>
+                  </div>
+                <div class="team-table-info">
+                    <p class="team-table-info_data">Team Elo Rankings</p>
+                    <p>k=32, init=1000</p>
+                </div>         	
+            </div>
+            <button-white class="team-page_button">Загрузить еще</button-white>
         </div>
-        <div class="team-table">
-            <div class="team-table-header">
-                <div class="team-table-header_tag"><p class="team-table-header_value">Ранг</p></div>
-                <div class="team-table-header_name"><p class="team-table-header_value">Название команды</p></div>
-                <div class="team-table-header_rating"><p class="team-table-header_value">Рейтинг</p></div>
-                <div class="team-table-header_wins"><p class="team-table-header_value">Победы</p></div>
-                <div class="team-table-header_losses"><p class="team-table-header_value">Проигрыши</p></div>
-            </div>            
-            <TeamTableRow 
-                v-for="opendotaTeam in opendotaTeams"
-                :opendotaTeam="opendotaTeam"
-                :key="opendotaTeam.team_id"
-            />   
-            <div class="team-table-info">
-                <p class="team-table-info_data">Team Elo Rankings</p>
-                <p>k=32, init=1000</p>
-            </div>         	
-        </div>
-        <button-white class="team-page_button">Загрузить еще</button-white>
+        <button-top />
+        <Footer />
     </div>
-    <Footer />
 </template>
 
 <script>
@@ -43,20 +50,19 @@ export default {
     data() {
         return {
             opendotaTeams: [],
-            limit: 10
+            isTeamDataLoading: true,
         }
     },
     methods: {
         async fetchOpendotaTeams() {
         try {
-          const response = await axios.get('https://api.opendota.com/api/teams', {
-            params: {
-                _limit: this.limit
-            }
-          });
+        this.isTeamDataLoading = true;
+          const response = await axios.get('https://api.opendota.com/api/teams');
           this.opendotaTeams = response.data.slice(0, 10);
         } catch (e) {
           alert('Error')
+        } finally {
+            this.isTeamDataLoading = false;
         }
       },
     },
@@ -89,7 +95,9 @@ export default {
     border: 2px solid var(--violet);
     filter: drop-shadow(0px 48px 64px var(--dark-violet));
     border-radius: 10px;
-
+    &-loading {
+        padding: 1em 2em;
+    }
     &-header {
         display: grid;
         gap: 0 20px; 

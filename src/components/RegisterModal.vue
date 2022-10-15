@@ -1,5 +1,5 @@
 <template>
-    <div v-if="show" @click.stop="hideRegisterModal" class="modal">
+    <div v-if="showRegisterModal" @click.stop="hideRegisterModal" class="modal">
         <div class="register">
             <button 
                 class="register-hide-button"
@@ -39,14 +39,14 @@
 export default {
     name: 'register-modal',
     props: {
-        show: {
+        showRegisterModal: {
             type: Boolean,
             default: false
         }
     },
     methods: {
         hideRegisterModal() {
-            this.$emit('update:show', false)
+            this.$emit('update:showRegisterModal', false)
         }
     }
 }

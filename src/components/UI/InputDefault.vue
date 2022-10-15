@@ -28,5 +28,8 @@
     &:hover {
         border-bottom: 2px solid var(--lime);
     }
+    &:focus {
+        border-bottom: 2px solid var(--bright-violet);
+    }
 }
 </style>

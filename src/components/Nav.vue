@@ -7,10 +7,12 @@
             class="show-menu-button"
         />
         <Sidebar 
-            v-model:show="menuVisibility"
+            v-model:showSidebar="menuVisibility"
         />
         <div v-if="menuVisibility != true" class="nav-logo">
-            <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+            <router-link to="/">
+                <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+            </router-link>
         </div>
     </div>
     
@@ -44,6 +46,7 @@ export default {
     display: flex;
     align-items: center;
     gap: 1.25em;
+    z-index: 100;
 }
 .show-menu-button {
     width: 24px;
@@ -53,5 +56,9 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+
+    &:hover {
+        background-image: url("@/assets/svg/Nav-lime.svg");
+    }
 }
 </style>

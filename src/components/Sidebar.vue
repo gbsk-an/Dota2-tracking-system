@@ -1,5 +1,5 @@
 <template>
-	<aside v-if="show" @click.stop="hideMenu" class="sidebar">
+	<aside v-if="showSidebar" @click.stop="hideMenu" class="sidebar">
 		<div class="sidebar-logo">
 			<button 
 				class="hide-menu-button" 
@@ -27,25 +27,47 @@
 			</div>
 		</div>		
 		<div class="sidebar-button">
-			<login-button 
-
-			/>
+			<button
+				class="sidebar-button_authorization"
+                @click="showModal"
+            >
+				Авторизация
+			</button>
+            <AuthorizationModal 
+                v-model:show="modalVisibility"
+            />
 		</div>
 	</aside>
 </template>
 
 <script>
+import AuthorizationModal from '@/components/AuthorizationModal.vue';
 export default {
     name: 'sidebar',
+	components: {
+    	AuthorizationModal,    
+	},
+	data() {
+        return {
+            modalVisibility: false,
+        }
+    },
     props: {
-        show: {
+        showSidebar: {
+            type: Boolean,
+            default: false
+        },
+		show: {
             type: Boolean,
             default: false
         }
     },
     methods: {
         hideMenu() {
-            this.$emit('update:show', false)
+            this.$emit('update:showSidebar', false)
+        },
+		showModal() {
+            this.modalVisibility = true;
         }
     }
 }
@@ -109,6 +131,40 @@ export default {
 				color: var(--lime);
 			}
 
+		}
+	}
+	&-button {
+		&_authorization {
+			position: relative;
+			padding: 1em 1.25em 1em 3.375em;
+			width: 100%;
+			background: rgba(16, 0, 37, 0.05);
+			border: 2px solid var(--white);
+			backdrop-filter: blur(16px);
+			color: var(--white);
+			font-family: var(--font);
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 19px;
+			cursor: pointer;
+		
+			&::before {
+				content: "";
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background-image: url("@/assets/svg/Authorization.svg");
+				background-repeat: no-repeat;
+				background-position: center;
+				left: 1em;
+				top: 50%;
+				transform: translateY(-50%);
+				cursor: pointer;
+			}
+			&:hover {
+				border: 2px solid var(--lime);
+				color: var(--lime);
+			}
 		}
 	}
 

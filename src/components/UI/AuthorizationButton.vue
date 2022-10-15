@@ -46,6 +46,9 @@ export default {
     &:hover {
         border: 2px solid var(--lime);
         color: var(--lime);
+        &::before{
+            background-image: url("@/assets/svg/Authorization-lime.svg");
+        }
     }
 }
 .authorization-fixed-top {

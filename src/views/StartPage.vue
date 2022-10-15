@@ -1,4 +1,5 @@
 <template>
+    <div class="bg-cover">
         <div class="wrapper-grid hero">        
             <div class="hero-logo">
                 <img src="../assets/svg/OpenDota-logo.svg" alt="OpenDota logo icon" />
@@ -46,20 +47,22 @@
             />
         </div>
         <Footer />
+    </div>
+
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
 import AuthorizationModal from '@/components/AuthorizationModal.vue';
+import Footer from '@/components/Footer.vue';
 export default {
     name: 'start-page',
     components: {
-        Footer,
-        AuthorizationModal
+    AuthorizationModal,
+    Footer
     },
     data() {
         return {
-            modalVisibility: false
+            modalVisibility: false,
         }
     },
     methods: {
@@ -74,6 +77,7 @@ export default {
 .hero {
     margin: 0 auto;
     padding-bottom: 7.75em;
+
     &-logo {
         grid-column: 4 / span 6;
         display: flex;

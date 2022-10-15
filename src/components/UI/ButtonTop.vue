@@ -1,7 +1,12 @@
 <template>
     <div class="fixed-bottom">
-        <button type="button" class="button-top">
-        </button>
+        <button 
+            type="button" 
+            class="button-top"
+            @click="scrollToTop"
+        
+        />
+
     </div>
     
 </template>
@@ -10,8 +15,19 @@
 export default {
     name: 'button-top',
     methods: {
-
-    }
+        scrollToTop(){
+            let currentScroll = document.documentElement.scrollTop,
+            int = setInterval(frame, 12)          
+            function frame(){
+                if ( 0 > currentScroll)
+                    clearInterval(int)                  
+                else {
+                  currentScroll = currentScroll - 12
+                  document.documentElement.scrollTop = currentScroll
+                }
+            }
+        }
+    },
 }
 </script>
 

@@ -26,16 +26,17 @@
                         <button 
                             @click="showRegisterModal" 
                             type="button"
+                            class="authorization-field-info_item-link"
                         >
                             Регистрация
                         </button>
                     </div>
-                    <RegisterModal 
+                    <!-- <RegisterModal 
                         v-model:show="registerModalVisibility"
-                    />
+                    /> -->
                     <div class="authorization-field-info_item">
                         <p>Забыли пароль?</p>
-                        <p>Восстановить пароль</p>
+                        <p  class="authorization-field-info_item-link">Восстановить пароль</p>
                     </div>
                 </div>
             </div>
@@ -52,7 +53,7 @@ export default {
     },
     date()  {
         return {
-            registerModalVisibility: false
+            
         }
     },
     props: {
@@ -65,12 +66,7 @@ export default {
         hideModal() {
             this.$emit("update:show", false);
         },
-        showRegisterModal() {
-            this.registerModalVisibility = true
-            this.modalVisibility = false
-            
-        }
-    },
+    }
 }
 </script>
 
@@ -104,6 +100,9 @@ export default {
         background-repeat: no-repeat;
         background-position: center;
         cursor: pointer;
+        &:hover {
+            background-image: url("@/assets/svg/Close-lime.svg");
+        }
     }
     &-field {
 
@@ -140,16 +139,12 @@ export default {
                 display: flex;
                 justify-content: space-evenly;
                 flex-wrap: wrap;
-
-                :first-child {
-                    font-weight: 500;
-                    color: var(--grey);
-                }
-                :last-child {
+                &-link {
                     position: relative;
                     font-weight: 700;
                     padding-right: 2.4em;
                     color: var(--black);
+                    cursor: pointer;
                     &::after {
                         content: "";
                         position: absolute;
@@ -164,9 +159,17 @@ export default {
                         cursor: pointer;
                     }
                     &:hover {
-                        color: var(--lime);                        
+                        color: var(--lime);  
+                        &::after{
+                            background-image: url("@/assets/svg/Arrow-right-lime.svg");
+                        }                      
                     }
                 }
+                :first-child {
+                    font-weight: 500;
+                    color: var(--grey);
+                }
+
             }
         }
     }
