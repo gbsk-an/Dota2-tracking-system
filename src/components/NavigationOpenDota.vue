@@ -21,7 +21,7 @@
 <script>
 import Sidebar from '@/components/Sidebar.vue'
 export default {
-    name: 'nav',
+    name: 'navigation-openDota',
     components: {
     Sidebar
   },

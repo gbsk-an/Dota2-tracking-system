@@ -59,6 +59,8 @@ export default {
     height: 100vh;
     width: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
     padding-top: 6em;
     background-color: var(--dark-violet-alt);
 }

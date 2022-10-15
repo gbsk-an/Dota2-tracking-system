@@ -12,12 +12,12 @@
             </div>
             <div class="team-table-content_radiant">
                 <div class="team-table-content_radiant-data">
-                    <p>{{opendotaMatche.radiant_team}}</p>
+                    <img src="../assets/radiant.png" />
                 </div>
             </div>
             <div class="team-table-content_dire">
                 <div class="team-table-content_dire-data">
-                    <p>{{opendotaMatche.dire_team}}</p>
+                    <img src="../assets/radiant.png" />
                 </div>
             </div>
         </div>      

@@ -1,6 +1,6 @@
 <template>
     <div class="bg-cover">
-        <Nav />
+        <NavigationOpenDota />
         <div class="wrapper-grid team-page">
             <div class="team-page_title">
                 <h1>Список команд</h1>
@@ -36,14 +36,14 @@
 
 <script>
 import axios from "axios"
-import Nav from '@/components/Nav.vue';
+import NavigationOpenDota from '@/components/NavigationOpenDota.vue';
 import Footer from '@/components/Footer.vue';
 import TeamTableRow from '@/components/TeamTableRow.vue'
 
 export default {
     name: 'team-page',
     components: {
-    Nav,
+    NavigationOpenDota,
     Footer,
     TeamTableRow
 },

@@ -1,49 +1,46 @@
 <template>
     <div class="bg-cover">
-        <Nav />
-        <div class="wrapper-grid team-page">
-            <div class="team-page_title">
+        <NavigationOpenDota />
+        <div class="wrapper-grid matches-page">
+            <div class="matches-page_title">
                 <h1>Список матчей</h1>
             </div>
-            <div class="team-table">
-                <div class="team-table-header">
-                    <div class="team-table-header_id"><p class="team-table-header_value">ID</p></div>
-                    <div class="team-table-header_duration"><p class="team-table-header_value">Длительность</p></div>
-                    <div class="team-table-header_radiant"><p class="team-table-header_value">Radiant</p></div>
-                    <div class="team-table-header_dire"><p class="team-table-header_value">Dire</p></div>
+            <div class="matches-table">
+                <div class="matches-table-header">
+                    <div class="matches-table-header_id"><p class="matches-table-header_value">ID</p></div>
+                    <div class="matches-table-header_duration"><p class="matches-table-header_value">Длительность</p></div>
+                    <div class="matches-table-header_radiant"><p class="matches-table-header_value">Radiant</p></div>
+                    <div class="matches-table-header_dire"><p class="matches-table-header_value">Dire</p></div>
                 </div>            
                 <MatchesTableRow 
                     v-for="opendotaMatche in opendotaMatches"
                     :opendotaMatche="opendotaMatche"
-                    :key="opendotaMatche.team_id"
+                    :key="opendotaMatche.matches_id"
                     v-if="!isMatchesDataLoading"
                 />  
-                <div v-else class="team-table-loading">
+                <div v-else class="matches-table-loading">
                     <h2>Loading...</h2>
                   </div>         	
             </div>
-            <button-white class="team-page_button">Загрузить еще</button-white>
+            <button-white class="matches-page_button">Загрузить еще</button-white>
         </div>
         <button-top />
-        <AuthorizationModal v-if="isOpenedAuthModal"/>
         <Footer />
     </div>
 </template>
 
 <script>
 import axios from "axios"
-import Nav from '@/components/Nav.vue';
+import NavigationOpenDota from '@/components/NavigationOpenDota.vue';
 import Footer from '@/components/Footer.vue';
-import AuthorizationModal from "@/components/AuthorizationModal";
 import MatchesTableRow from '@/components/MatchesTableRow.vue'
 
 export default {
     name: 'matches-page',
     components: {
-        Nav,
+        NavigationOpenDota,
         Footer,
         MatchesTableRow,
-        AuthorizationModal
     },
     data() {
         return {
@@ -72,7 +69,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.team-page {
+.matches-page {
     z-index: 1;
     padding-bottom: 3.375em;
     &_title {
@@ -87,7 +84,7 @@ export default {
     }
 
 }
-.team-table {
+.matches-table {
     width: 100%;
     grid-column: 3 / span 8;
     margin: 3.125em 0;

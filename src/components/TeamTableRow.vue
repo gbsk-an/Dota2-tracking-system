@@ -1,7 +1,7 @@
 <template>
     <div class="team-table-row">
         <div class="team-table-content">
-                <div class="team-table-content_tag">		
+            <div class="team-table-content_tag">		
                 <p class="team-table-content_tag-data">{{opendotaTeam.tag}}</p>
             </div>
             <div class="team-table-content_name">

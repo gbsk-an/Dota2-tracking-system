@@ -23,7 +23,7 @@
 				<router-link to="/MatchesPage">
 					<p class="sidebar-menu_item">Список матчей</p>
 				</router-link>
-				<router-link to="/">
+				<router-link to="/MatchDetailsPage">
 					<p class="sidebar-menu_item">Сравнение команд</p>
 				</router-link>
 			</div>

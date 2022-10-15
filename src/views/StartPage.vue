@@ -37,8 +37,6 @@
                 </div>
             </div>
             <authorization-button @click="showAuthModal"/>
-            <AuthorizationModal v-if="isOpenedAuthModal"/>
-            <RegisterModal v-if="isOpenedRegisterModal"/>
             <button-top />
         </div>
         <Footer />
@@ -46,28 +44,17 @@
 </template>
 
 <script>
-import AuthorizationModal from '@/components/AuthorizationModal.vue';
 import Footer from '@/components/Footer.vue';
-import RegisterModal from "@/components/RegisterModal";
+
 export default {
     name: 'start-page',
     components: {
-        RegisterModal,
-        AuthorizationModal,
         Footer
     },
     data() {
         return {
             authModal: { isOpened: false },
             registrationModal: { isOpened: false }
-        }
-    },
-    computed: {
-        isOpenedAuthModal() {
-            return this.$store.getters['modals/isOpenedAuth']
-        },
-        isOpenedRegisterModal() {
-          return this.$store.getters['modals/isOpenedRegister']
         }
     },
     methods: {

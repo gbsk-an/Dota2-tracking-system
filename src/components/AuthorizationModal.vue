@@ -38,21 +38,21 @@
 
 <script>
 export default {
-    name: "authorization-modal",
-    methods: {
-        hideModal() {
-            this.$store.commit('modals/setIsOpenedAuth', false)
-        },
-        showRegisterModal() {
-            this.hideModal()
-            this.$store.commit('modals/setIsOpenedRegister', true)
-        }
+  name: "authorization-modal",
+  methods: {
+    hideModal() {
+      this.$store.commit('modals/setIsOpenedAuth', false)
     },
-    computed: {
-        isOpenedModal() {
-            return this.$store.getters['modals/isOpenedAuth']
-        }
+    showRegisterModal() {
+      this.hideModal()
+      this.$store.commit('modals/setIsOpenedRegister', true)
     }
+  },
+  computed: {
+    isOpenedModal() {
+      return this.$store.getters['modals/isOpenedAuth']
+    }
+  }
 }
 </script>
 
@@ -61,6 +61,8 @@ export default {
     height: 100vh;
     width: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
     padding-top: 6em;
     background-color: var(--dark-violet-alt);
 }

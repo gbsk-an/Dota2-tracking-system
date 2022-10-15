@@ -1,32 +1,37 @@
 <template>	
 	<!-- Content -->
 	<router-view>
-			
-	</router-view>	
+
+	</router-view>
+	<!-- Modals -->	
+	<AuthorizationModal v-if="isOpenedAuthModal"/>
+	<RegisterModal v-if="isOpenedRegisterModal"/>
 </template>
 
 <script>
-import MainLayout from '@/layouts/MainLayout.vue'
-import StartPage from '@/views/StartPage.vue'
-import TeamPage from '@/views/TeamPage.vue'
+import RegisterModal from "@/components/RegisterModal";
+import AuthorizationModal from "@/components/AuthorizationModal";
 export default {
     name: '#app',
 	components: {
-		MainLayout,
-		StartPage,
-		TeamPage
+		RegisterModal,
+    	AuthorizationModal,
 	},
-    data() {
-        return {
-
-        }
+  	computed: {
+		isOpenedAuthModal() {
+		return this.$store.getters['modals/isOpenedAuth']
     },
+		isOpenedRegisterModal() {
+		return this.$store.getters['modals/isOpenedRegister']
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 :root {
 	--lime: #BBDD00;
+	--yellow: #EECD00;
 	--orange: #FA7000;
   	--violet: #301070;
 	--ulta-dark-violet: #200050;
@@ -87,6 +92,20 @@ p {
 	font-size: 16px;
 	line-height: 19px;
 }
+.p-title {
+	color: var(--brightest-violet);
+	font-family: var(--font);
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 29px;
+}
+.p-yellow {
+	color: var(--yellow);
+	font-family: var(--font);
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+}
 button,
 input,
 optgroup,
@@ -107,6 +126,9 @@ a {
 	text-decoration: none;
 	color: var(--brightest-violet);
 }
+.uppercase {
+	text-transform: uppercase;
+}
 .wrapper-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -116,7 +138,7 @@ a {
 	flex: 1 1 auto;
 }
 .bg-cover {
-    background-image: linear-gradient(0deg, rgba(32,0,80,1) 40%, rgba(196,196,196,0.4) 100%), url('@/assets/background.png');
+    background-image: linear-gradient(0deg, rgba(32,0,80,1) 45%, rgba(196,196,196,0.2) 100%), url('@/assets/background.png');
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
