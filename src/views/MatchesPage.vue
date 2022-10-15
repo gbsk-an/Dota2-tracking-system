@@ -25,6 +25,7 @@
             <button-white class="team-page_button">Загрузить еще</button-white>
         </div>
         <button-top />
+        <AuthorizationModal v-if="isOpenedAuthModal"/>
         <Footer />
     </div>
 </template>
@@ -33,6 +34,7 @@
 import axios from "axios"
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
+import AuthorizationModal from "@/components/AuthorizationModal";
 import MatchesTableRow from '@/components/MatchesTableRow.vue'
 
 export default {
@@ -40,12 +42,14 @@ export default {
     components: {
         Nav,
         Footer,
-        MatchesTableRow
+        MatchesTableRow,
+        AuthorizationModal
     },
     data() {
         return {
             opendotaMatches: [],
-            isMatchesDataLoading: false
+            isMatchesDataLoading: false,
+            authModal: {isOpened: false},
         }
     },
     methods: {

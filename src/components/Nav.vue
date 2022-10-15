@@ -10,11 +10,9 @@
             v-model:showSidebar="menuVisibility"
         />
         <div v-if="menuVisibility != true" class="nav-logo">
-            <transition name="">
-                <router-link to="/">
-                    <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
-                </router-link>
-            </transition>
+            <router-link to="/">
+                <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+            </router-link>
         </div>
     </div>
     
@@ -25,18 +23,18 @@ import Sidebar from '@/components/Sidebar.vue'
 export default {
     name: 'nav',
     components: {
-		Sidebar
-	},
-    data() {
-        return {
-            menuVisibility: false,
-        }
-    },
-    methods: {
-        showMenu() {
-            this.menuVisibility = true;
-        }
+    Sidebar
+  },
+  data() {
+    return {
+      menuVisibility: false,
     }
+  },
+  methods: {
+    showMenu() {
+      this.menuVisibility = true;
+    }
+  }
 }
 </script>
 
@@ -63,4 +61,5 @@ export default {
         background-image: url("@/assets/svg/Nav-lime.svg");
     }
 }
+
 </style>

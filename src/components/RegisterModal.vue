@@ -8,24 +8,30 @@
                 </div>
                 <div class="register-field-section">
                     <div>
-                        <label class="register-field-section_label">Логин / E-mail</label>
+                        <label class="register-field-section_label">E-mail</label>
                         <input-white  class="register-field-section_input" />
                     </div>
                     <div>
                         <label class="register-field-section_label">Пароль</label>
                         <input-white  class="register-field-section_input" />
                     </div>
-                    <button-violet class="register-field-section_button">Войти</button-violet>
+                    <div>
+                        <label class="register-field-section_label">Логин</label>
+                        <input-white  class="register-field-section_input" />
+                    </div>
+                    <div>
+                        <label class="register-field-section_label">Повторите пароль</label>
+                        <input-white  class="register-field-section_input" />
+                    </div>
                 </div>
                 <div class="register-field-info">
-                    <div class="register-field-info_item">
-                        <p>Нет учетной записи?</p>
-                        <p>Регистрация</p>
-                    </div>
-                    <div class="register-field-info_item">
-                        <p>Забыли пароль?</p>
-                        <p>Восстановить пароль</p>
-                    </div>
+                    <div class="register-field-info_checkbox">
+                        <input type="checkbox" class="register-field-info_checkbox-input" />
+                        <label>
+                            Согласен с политикой конфиденциальности
+                        </label>
+                    </div>                    
+                    <button-grey class="register-field-info_button">Регистрация</button-grey>
                 </div>
             </div>
         </div>        
@@ -37,7 +43,12 @@ export default {
     name: 'register-modal',
     methods: {
         hideModal() {
-            this.$emit('hide-modal');
+            this.$store.commit('modals/setIsOpenedRegister', false)
+        }
+    },
+    computed: {
+        isOpenedModal() {
+            return this.$store.getters['modals/isOpenedRegister']
         }
     }
 }
@@ -53,8 +64,8 @@ export default {
 }
 .register {
     position: relative;
-    max-width: 536px;
-    padding: 2.75em 5em;
+    max-width: 774px;
+    padding: 2.5em 5em;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -73,20 +84,27 @@ export default {
         background-repeat: no-repeat;
         background-position: center;
         cursor: pointer;
+        &:hover {
+            background-image: url("@/assets/svg/Close-lime.svg");
+        }
     }
     &-field {
 
-        &_title > h1 {
-            background: var(--bright-violet-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        &_title {
+            text-align: center;
+            &> h1 {
+                background: var(--bright-violet-gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
         }
         &-section {
             display: flex;
-            flex-direction: column;
-            gap: 2.25em;
-            margin: 2.25em 0 1.5em;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1em 1.25em;
+            margin: 2em 0 ;
             &_label {
                 font-weight: 700;
                 font-size: 16px;
@@ -103,39 +121,19 @@ export default {
         &-info {
             display: flex;
             flex-direction: column;
-            gap: 1.2em;
-
-            &_item {
+            align-items: center;
+            gap: 1.6em;
+            &_checkbox{
                 display: flex;
-                justify-content: space-evenly;
-                flex-wrap: wrap;
-
-                :first-child {
-                    font-weight: 500;
-                    color: var(--grey);
+                align-items: center;
+                gap: 0 .6em;
+                &-input{
+                    width: 32px;
+                    height: 32px;
                 }
-                :last-child {
-                    position: relative;
-                    font-weight: 700;
-                    padding-right: 2.4em;
-                    color: var(--black);
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        width: 24px;
-                        height: 24px;
-                        background-image: url("@/assets/svg/Arrow-right-black.svg");
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        top: 50%;
-                        right: 0;
-                        transform: translate(-50%, -50%);
-                        cursor: pointer;
-                    }
-                    &:hover {
-                        color: var(--lime);
-                    }
-                }
+            }
+            &_button {
+                padding: .9em 2.5em;
             }
         }
     }

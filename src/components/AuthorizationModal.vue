@@ -40,12 +40,17 @@
 export default {
     name: "authorization-modal",
     methods: {
-        showRegisterModal() {
-            this.hideModal();
-            this.$emit('show-register-modal');
-        },
         hideModal() {
-          this.$emit('hide-modal');
+            this.$store.commit('modals/setIsOpenedAuth', false)
+        },
+        showRegisterModal() {
+            this.hideModal()
+            this.$store.commit('modals/setIsOpenedRegister', true)
+        }
+    },
+    computed: {
+        isOpenedModal() {
+            return this.$store.getters['modals/isOpenedAuth']
         }
     }
 }
@@ -87,11 +92,14 @@ export default {
     }
     &-field {
 
-        &_title > h1 {
-            background: var(--bright-violet-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        &_title {
+            text-align: center;
+            &> h1 {
+                background: var(--bright-violet-gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
         }
         &-section {
             display: flex;

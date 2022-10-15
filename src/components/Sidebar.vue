@@ -31,47 +31,35 @@
 		<div class="sidebar-button">
 			<button
 				class="sidebar-button_authorization"
-                @click="showModal"
+                @click="onClickOpenAuthModal"
             >
 				Авторизация
 			</button>
-            <AuthorizationModal 
-                v-model:show="modalVisibility"
-            />
 		</div>
-	</aside>
+	</aside>	
 </template>
 
 <script>
-import AuthorizationModal from '@/components/AuthorizationModal.vue';
 export default {
     name: 'sidebar',
-	components: {
-    	AuthorizationModal,    
-	},
-	data() {
-        return {
-            modalVisibility: false,
-        }
+	props: {
+    showSidebar: {
+      type: Boolean,
+      default: false
     },
-    props: {
-        showSidebar: {
-            type: Boolean,
-            default: false
-        },
-		show: {
-            type: Boolean,
-            default: false
-        }
-    },
-    methods: {
-        hideMenu() {
-            this.$emit('update:showSidebar', false)
-        },
-		showModal() {
-            this.modalVisibility = true;
-        }
+    show: {
+      type: Boolean,
+      default: false
     }
+  },
+  methods: {
+    hideMenu() {
+      this.$emit('update:showSidebar', false)
+    },
+    onClickOpenAuthModal() {
+      this.$store.commit('modals/setIsOpenedAuth', true)
+    }
+  }
 }
 </script>
 
@@ -91,6 +79,7 @@ export default {
 	padding: 1.25em;
 	transition: all 14s;
 	z-index: 100;
+	animation: fadeInLeft;
 
 	&-logo {
     	display: flex;
@@ -115,6 +104,7 @@ export default {
 			position: relative;
 			color: var(--white);
 			font-weight: 700;
+			transition: all .5s;
 			
 			&::after {
 				content: "";
@@ -132,8 +122,10 @@ export default {
 
 			&:hover {
 				color: var(--lime);
+				transition: all .5s;
 				&::after{
 					background-image: url("@/assets/svg/Arrow-right-lime.svg");
+					transition: all .5s;
 				} 
 			}
 
@@ -153,6 +145,7 @@ export default {
 			font-size: 16px;
 			line-height: 19px;
 			cursor: pointer;
+			transition: all .5s;
 		
 			&::before {
 				content: "";
@@ -170,8 +163,10 @@ export default {
 			&:hover {
 				border: 2px solid var(--lime);
 				color: var(--lime);
+				transition: all .5s;
 				&::before{
 					background-image: url("@/assets/svg/Authorization-lime.svg");
+					transition: all .5s;
 				}
 			}
 		}
@@ -190,5 +185,5 @@ export default {
 	&:hover {
 		background-image: url("@/assets/svg/Close-lime.svg");
 	}
-}
+}  
 </style>

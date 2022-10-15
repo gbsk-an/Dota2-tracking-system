@@ -36,19 +36,10 @@
                     <p>Серверы финансируются спонсорами, а код поддерживают волонтеры, поэтому услуга предоставляется бесплатно.</p>
                 </div>
             </div>
-            <authorization-button @click="authModal.isOpened = true"/>
-            <AuthorizationModal
-                v-if="authModal.isOpened"
-                @show-register-modal="registrationModal.isOpened = true"
-                @hide-modal="authModal.isOpened = false"
-            />
-            <RegisterModal
-                v-if="registrationModal.isOpened"
-                @hide-modal="registrationModal.isOpened = false"
-            />
-            <button-top
-            
-            />
+            <authorization-button @click="showAuthModal"/>
+            <AuthorizationModal v-if="isOpenedAuthModal"/>
+            <RegisterModal v-if="isOpenedRegisterModal"/>
+            <button-top />
         </div>
         <Footer />
     </div>
@@ -69,6 +60,19 @@ export default {
         return {
             authModal: { isOpened: false },
             registrationModal: { isOpened: false }
+        }
+    },
+    computed: {
+        isOpenedAuthModal() {
+            return this.$store.getters['modals/isOpenedAuth']
+        },
+        isOpenedRegisterModal() {
+          return this.$store.getters['modals/isOpenedRegister']
+        }
+    },
+    methods: {
+        showAuthModal() {
+            this.$store.commit('modals/setIsOpenedAuth', true)
         }
     }
 }

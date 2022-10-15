@@ -29,6 +29,7 @@ export default {
     font-size: 16px;
     line-height: 19px;
     cursor: pointer;
+    transition: all .5s;
 
     &::before {
         content: "";
@@ -46,8 +47,10 @@ export default {
     &:hover {
         border: 2px solid var(--lime);
         color: var(--lime);
+        transition: all .4s;
         &::before{
             background-image: url("@/assets/svg/Authorization-lime.svg");
+            transition: all .5s;
         }
     }
 }

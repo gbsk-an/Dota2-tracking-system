@@ -2,7 +2,7 @@
     <div class="fixed-bottom">
         <button 
             type="button" 
-            class="button-top"
+            class="scrollTop"
             @click="scrollToTop"
         
         />
@@ -17,12 +17,12 @@ export default {
     methods: {
         scrollToTop(){
             let currentScroll = document.documentElement.scrollTop,
-            int = setInterval(frame, 12)          
+            int = setInterval(frame, 1.8)          
             function frame(){
                 if ( 0 > currentScroll)
                     clearInterval(int)                  
                 else {
-                  currentScroll = currentScroll - 12
+                  currentScroll = currentScroll - 1.8
                   document.documentElement.scrollTop = currentScroll
                 }
             }
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.button-top {
+.scrollTop {
     position: relative;
     width: 64px;
     height: 64px;
@@ -42,7 +42,7 @@ export default {
     box-shadow: 0px 15px 30px -15px rgba(16, 0, 37, 0.5);
     transition: all .4s;
     cursor: pointer;
-
+    transition: all .5s;
     &::before {
         content: "";
         position: absolute;
@@ -57,7 +57,7 @@ export default {
     }
     &:hover {
         background-color: var(--lime);
-        transition: all .4s;
+        transition: all .5s;
     }
 }
 .fixed-bottom {
