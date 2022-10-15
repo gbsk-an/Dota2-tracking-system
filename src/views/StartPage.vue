@@ -36,38 +36,39 @@
                     <p>Серверы финансируются спонсорами, а код поддерживают волонтеры, поэтому услуга предоставляется бесплатно.</p>
                 </div>
             </div>
-            <authorization-button 
-                @click="showModal"
+            <authorization-button @click="authModal.isOpened = true"/>
+            <AuthorizationModal
+                v-if="authModal.isOpened"
+                @show-register-modal="registrationModal.isOpened = true"
+                @hide-modal="authModal.isOpened = false"
             />
-            <AuthorizationModal 
-                v-model:show="modalVisibility"
+            <RegisterModal
+                v-if="registrationModal.isOpened"
+                @hide-modal="registrationModal.isOpened = false"
             />
-            <button-top 
+            <button-top
             
             />
         </div>
         <Footer />
     </div>
-
 </template>
 
 <script>
 import AuthorizationModal from '@/components/AuthorizationModal.vue';
 import Footer from '@/components/Footer.vue';
+import RegisterModal from "@/components/RegisterModal";
 export default {
     name: 'start-page',
     components: {
-    AuthorizationModal,
-    Footer
+        RegisterModal,
+        AuthorizationModal,
+        Footer
     },
     data() {
         return {
-            modalVisibility: false,
-        }
-    },
-    methods: {
-        showModal() {
-            this.modalVisibility = true;
+            authModal: { isOpened: false },
+            registrationModal: { isOpened: false }
         }
     }
 }

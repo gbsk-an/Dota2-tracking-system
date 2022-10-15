@@ -5,7 +5,9 @@
 				class="hide-menu-button" 
 				@click.stop="hideMenu" 
 			/>
-			<img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+			<router-link to="/">
+				<img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+			</router-link>
 		</div>
 		<div class="flex" @click.stop>
 			<div class="sidebar-search-field">
@@ -87,7 +89,7 @@ export default {
 	overflow: hidden;
 	min-height: 100vh;
 	padding: 1.25em;
-	transition: 0.2s ease-in-out;
+	transition: all 14s;
 	z-index: 100;
 
 	&-logo {
@@ -95,6 +97,7 @@ export default {
 		align-items: center;
 		gap: 1.25em;
 		margin-bottom: 3.625em;
+		transition: 0.4s ease-in-out;
 	}
 
 	&-search-field {
@@ -129,6 +132,9 @@ export default {
 
 			&:hover {
 				color: var(--lime);
+				&::after{
+					background-image: url("@/assets/svg/Arrow-right-lime.svg");
+				} 
 			}
 
 		}
@@ -164,6 +170,9 @@ export default {
 			&:hover {
 				border: 2px solid var(--lime);
 				color: var(--lime);
+				&::before{
+					background-image: url("@/assets/svg/Authorization-lime.svg");
+				}
 			}
 		}
 	}
@@ -177,5 +186,9 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+	transition: 0.4s ease-in-out;
+	&:hover {
+		background-image: url("@/assets/svg/Close-lime.svg");
+	}
 }
 </style>

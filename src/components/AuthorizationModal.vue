@@ -1,10 +1,7 @@
 <template>
-    <div v-if="show" @click.stop="hideModal" class="modal">
+    <div @click.stop="hideModal" class="modal">
         <div class="authorization">
-            <button 
-                class="authorization-hide-button"
-                @click.stop="hideModal"
-            />
+            <button class="authorization-hide-button" @click.stop="hideModal"/>
             <div class="authorization-field" @click.stop>
                 <div class="authorization-field_title">
                     <h1>Авторизация</h1>
@@ -27,13 +24,8 @@
                             @click="showRegisterModal" 
                             type="button"
                             class="authorization-field-info_item-link"
-                        >
-                            Регистрация
-                        </button>
+                        >Регистрация</button>
                     </div>
-                    <!-- <RegisterModal 
-                        v-model:show="registerModalVisibility"
-                    /> -->
                     <div class="authorization-field-info_item">
                         <p>Забыли пароль?</p>
                         <p  class="authorization-field-info_item-link">Восстановить пароль</p>
@@ -45,27 +37,16 @@
 </template>
 
 <script>
-import RegisterModal from "@/components/RegisterModal.vue";
 export default {
     name: "authorization-modal",
-    components: { 
-        RegisterModal
-    },
-    date()  {
-        return {
-            
-        }
-    },
-    props: {
-        show: {
-            type: Boolean,
-            default: false
-        }
-    },
     methods: {
-        hideModal() {
-            this.$emit("update:show", false);
+        showRegisterModal() {
+            this.hideModal();
+            this.$emit('show-register-modal');
         },
+        hideModal() {
+          this.$emit('hide-modal');
+        }
     }
 }
 </script>
@@ -174,6 +155,4 @@ export default {
         }
     }
 }
-
-
 </style>

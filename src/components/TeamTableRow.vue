@@ -49,7 +49,7 @@ export default {
     border-bottom: 2px solid var(--violet);
     transition: all .6s;
     &:hover {
-        background-color: var(--bright-violet-gradient);
+        background-color: rgba(48, 16, 112, 0.4);
         transition: all .6s;
     }
 }
@@ -58,7 +58,7 @@ export default {
     border-bottom: 2px solid var(--violet);
     transition: all .6s;
     &:hover {
-        background-color: var(--bright-violet-gradient);
+        background-color: rgba(48, 16, 112, 0.4);
         transition: all .6s;
     }
 }

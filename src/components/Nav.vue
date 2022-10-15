@@ -10,9 +10,11 @@
             v-model:showSidebar="menuVisibility"
         />
         <div v-if="menuVisibility != true" class="nav-logo">
-            <router-link to="/">
-                <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
-            </router-link>
+            <transition name="">
+                <router-link to="/">
+                    <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+                </router-link>
+            </transition>
         </div>
     </div>
     

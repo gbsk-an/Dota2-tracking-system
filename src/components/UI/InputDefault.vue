@@ -27,9 +27,11 @@
 
     &:hover {
         border-bottom: 2px solid var(--lime);
+        background-image: url("@/assets/svg/Search-lime.svg");
     }
     &:focus {
         border-bottom: 2px solid var(--bright-violet);
+        background-image: url("@/assets/svg/Search.svg");
     }
 }
 </style>
