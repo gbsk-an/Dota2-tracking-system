@@ -1,9 +1,12 @@
 <template>
     <div class="bg-cover">
+        <NavigationOpenDota class="navigation-start-page" />
         <div class="wrapper-grid hero">        
             <div class="hero-logo">
-                <img src="../assets/svg/OpenDota-logo.svg" alt="OpenDota logo icon" />
-                <img src="../assets/svg/Logo.svg" alt="OpenDota logo" />
+                <picture>
+                    <source srcset="../assets/svg/Logo-mini.svg" media="(max-width: 320px)" />
+                    <img src="../assets/svg/Logo-large.svg" alt="OpenDota logo" />
+                </picture>
             </div>
             <div class="hero-search-field">
                 <input-default 
@@ -21,22 +24,22 @@
             </div>
             <div class="hero-info">
                 <div class="hero-info_block">
-                    <img src="../assets/svg/Icon_01.svg" alt="Icon" />
+                    <img src="../assets/svg/Icon_01.svg" class="hero-info_block-image" alt="Icon" />
                     <h2 class="hero-info_block-title">Открытый источик</h2>
                     <p>Вся информация и данные для сайта берутся из OpenSource данных.</p>
                 </div>
                 <div class="hero-info_block">
-                    <img src="../assets/svg/Icon_02.svg" alt="Icon" />
+                    <img src="../assets/svg/Icon_02.svg" class="hero-info_block-image" alt="Icon" />
                     <h2 class="hero-info_block-title">Подробные данные</h2>
                     <p>Анализ файлов повторов предоставляет очень подробные данные о матче.</p>
                 </div>
                 <div class="hero-info_block">
-                    <img src="../assets/svg/Icon_03.svg" alt="Icon" />
+                    <img src="../assets/svg/Icon_03.svg" class="hero-info_block-image" alt="Icon" />
                     <h2 class="hero-info_block-title">Бесплатно</h2>
                     <p>Серверы финансируются спонсорами, а код поддерживают волонтеры, поэтому услуга предоставляется бесплатно.</p>
                 </div>
             </div>
-            <authorization-button @click="showAuthModal"/>
+            <authorization-button class="hero-authorization" @click="showAuthModal"/>
             <button-top />
         </div>
         <Footer />
@@ -45,11 +48,12 @@
 
 <script>
 import Footer from '@/components/Footer.vue';
-
+import NavigationOpenDota from '@/components/NavigationOpenDota.vue'
 export default {
     name: 'start-page',
     components: {
-        Footer
+        Footer,
+        NavigationOpenDota
     },
     data() {
         return {
@@ -69,23 +73,37 @@ export default {
 .hero {
     margin: 0 auto;
     padding-bottom: 7.75em;
-
+    @media (max-width: 320px) {
+        padding-bottom: 5.9em;
+    } 
     &-logo {
         grid-column: 4 / span 6;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1.8em;
         margin-bottom: 9.1em;
         margin-top: 12.5em;
+
+        @media (max-width: 320px) {
+            margin: 0 auto;
+            padding-top: 6.25em;
+            padding-bottom: 2.5em;
+        }   
     }
 
     &-search-field {
         grid-column: 4 / span 6;
         justify-content: center;
         margin-bottom: 3.125em;
+        @media (max-width: 320px) {
+            margin: 0 auto;
+            padding-bottom: 1.25em;
+        }
         &_input {
             padding: 1.6em 1em;
+            @media (max-width: 320px) {
+                padding: .75em .6em;
+            }
         }
     }
     &-search-buttons {
@@ -96,8 +114,15 @@ export default {
         gap: 1.2em;
         margin-bottom: 3.125em;
 
+        @media (max-width: 320px) {
+            flex-direction: column;            
+        }
+
         &_style {
             padding: .9em 5.6em;
+            @media (max-width: 320px) {
+                padding: .9em 3.7em;           
+            }
         }
     }
     &-info {
@@ -106,6 +131,10 @@ export default {
         justify-content: space-between;
         align-items: center;
         gap: 1.5em;
+        @media (max-width: 320px) {
+            flex-direction: column;
+            gap: 2.5em 0;           
+        }
 
         &_block {
             display: flex;
@@ -113,10 +142,30 @@ export default {
             flex-direction: column;
             text-align: center;
             max-width: 370px;
+            &-image {
+                align-self: center;
+                @media (max-width: 320px) {
+                    width: 27%;           
+                }
+            }
             &-title {
-                padding: 1.5625em 0;
+                padding: 1.56em 0;
+                @media (max-width: 320px) {
+                    padding: .9em 0;          
+                }
             }
         }
+    }
+    &-authorization {
+        @media (max-width: 320px) {
+            display: none;
+        }
+    }
+}
+.navigation-start-page {
+    display: none;
+    @media (max-width: 320px) {
+        display: block;
     }
 }
 </style>

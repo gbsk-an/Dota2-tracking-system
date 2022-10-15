@@ -11,7 +11,7 @@
         />
         <div v-if="menuVisibility != true" class="nav-logo">
             <router-link to="/">
-                <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+                <img src="../assets/svg/Logo-duo.svg" class="nav-logo_image" alt="OpenDota logo icon" />
             </router-link>
         </div>
     </div>
@@ -47,6 +47,20 @@ export default {
     align-items: center;
     gap: 1.25em;
     z-index: 100;
+    @media (max-width: 320px) {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      padding: .8em 1.25em;
+      background: rgba(32, 0, 80, 0.4);
+      backdrop-filter: blur(8px);
+    }
+    &-logo {
+      @media (max-width: 320px) {
+        display: none;
+      }
+    }
 }
 .show-menu-button {
     width: 24px;

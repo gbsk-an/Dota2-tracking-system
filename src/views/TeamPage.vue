@@ -43,10 +43,10 @@ import TeamTableRow from '@/components/TeamTableRow.vue'
 export default {
     name: 'team-page',
     components: {
-    NavigationOpenDota,
-    Footer,
-    TeamTableRow
-},
+        NavigationOpenDota,
+        Footer,
+        TeamTableRow
+    },
     data() {
         return {
             opendotaTeams: [],
@@ -76,6 +76,7 @@ export default {
 .team-page {
     z-index: 1;
     padding-bottom: 3.375em;
+    
     &_title {
         padding-top: 9.25em;
         grid-column: 3 / span 4;

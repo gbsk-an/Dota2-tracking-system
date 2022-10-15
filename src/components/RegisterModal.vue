@@ -63,6 +63,10 @@ export default {
     left: 0;
     padding-top: 6em;
     background-color: var(--dark-violet-alt);
+    @media (max-width: 320px) {
+		padding: 0;
+        z-index: 1000;
+    }
 }
 .register {
     position: relative;
@@ -75,6 +79,12 @@ export default {
     background-color: var(--white);
     box-shadow: 0px 32px 128px -48px rgba(16, 0, 37, 0.25);
     border-radius: 10px;
+    @media (max-width: 320px) {
+		width: 100%;
+        height: 100%;
+        padding: 4em 1.25em;
+        border-radius: 0;
+    }
     &-hide-button {
         position: absolute;
         top: 1.25em;
@@ -99,6 +109,9 @@ export default {
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
+                @media (max-width: 320px) {
+                    font-size: 32px;
+                }
             }
         }
         &-section {

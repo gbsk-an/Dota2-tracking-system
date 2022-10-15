@@ -79,7 +79,11 @@ export default {
 	padding: 1.25em;
 	transition: all 14s;
 	z-index: 100;
-	animation: fadeInLeft;
+
+	@media (max-width: 320px) {
+		width: 100%;
+        padding: .8em 1.25em;
+    }
 
 	&-logo {
     	display: flex;
@@ -159,6 +163,9 @@ export default {
 				top: 50%;
 				transform: translateY(-50%);
 				cursor: pointer;
+				@media (max-width: 320px) {
+					left: 25%;
+				}
 			}
 			&:hover {
 				border: 2px solid var(--lime);

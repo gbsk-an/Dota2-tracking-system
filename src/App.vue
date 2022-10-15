@@ -59,6 +59,7 @@ export default {
 body,
 html {
     height: 100%;
+	overflow-x: hidden;
 }
 
 body {
@@ -76,6 +77,10 @@ h1 {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	text-shadow: 0px 8px 16px rgba(16, 0, 37, 0.15);
+	@media (max-width: 320px) {
+		font-size: 24px;
+		line-height: 29px;
+	}
 }
 h2 {
 	color: var(--brightest-violet);
@@ -118,7 +123,7 @@ textarea {
   border-radius: 0;
   box-shadow: none;
   background-color: transparent;
-  font: inherit; /* По дефолту, шрифтовые свойства, для этих элементов не наследуются */
+  font: inherit;
   color: inherit;
   letter-spacing: inherit;
 }
@@ -132,7 +137,12 @@ a {
 .wrapper-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 0 1.25em;  
+    gap: 0 1.25em;
+	@media (max-width: 320px) {
+		display: flex;
+		flex-direction: column;
+		max-width: 240px;
+	}  
 }
 .flex {
 	flex: 1 1 auto;
