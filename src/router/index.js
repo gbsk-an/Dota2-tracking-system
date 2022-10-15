@@ -12,6 +12,11 @@ const routes = [
 		name: 'team-page',
 		component: () => import('@/views/TeamPage.vue')
 	},
+	{
+		path: '/MatchesPage',
+		name: 'matches-page',
+		component: () => import('@/views/MatchesPage.vue')
+	},
 ]
 
 

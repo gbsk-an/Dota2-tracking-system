@@ -1,60 +1,43 @@
 <template>
-    <div v-if="show" @click.stop="hideModal" class="modal">
-        <div class="authorization">
+    <div v-if="show" @click.stop="hideRegisterModal" class="modal">
+        <div class="register">
             <button 
-                class="authorization-hide-button"
-                @click.stop="hideModal"
+                class="register-hide-button"
+                @click.stop="hideRegisterModal"
             />
-            <div class="authorization-field" @click.stop>
-                <div class="authorization-field_title">
-                    <h1>Авторизация</h1>
+            <div class="register-field" @click.stop>
+                <div class="register-field_title">
+                    <h1>Регистрация</h1>
                 </div>
-                <div class="authorization-field-section">
+                <div class="register-field-section">
                     <div>
-                        <label class="authorization-field-section_label">Логин / E-mail</label>
-                        <input-white  class="authorization-field-section_input" />
+                        <label class="register-field-section_label">Логин / E-mail</label>
+                        <input-white  class="register-field-section_input" />
                     </div>
                     <div>
-                        <label class="authorization-field-section_label">Пароль</label>
-                        <input-white  class="authorization-field-section_input" />
+                        <label class="register-field-section_label">Пароль</label>
+                        <input-white  class="register-field-section_input" />
                     </div>
-                    <button-violet class="authorization-field-section_button">Войти</button-violet>
+                    <button-violet class="register-field-section_button">Войти</button-violet>
                 </div>
-                <div class="authorization-field-info">
-                    <div class="authorization-field-info_item">
+                <div class="register-field-info">
+                    <div class="register-field-info_item">
                         <p>Нет учетной записи?</p>
-                        <button 
-                            @click="showRegisterModal" 
-                            type="button"
-                        >
-                            Регистрация
-                        </button>
+                        <p>Регистрация</p>
                     </div>
-                    <RegisterModal 
-                        v-model:show="registerModalVisibility"
-                    />
-                    <div class="authorization-field-info_item">
+                    <div class="register-field-info_item">
                         <p>Забыли пароль?</p>
                         <p>Восстановить пароль</p>
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>        
     </div>
 </template>
 
 <script>
-import RegisterModal from "@/components/RegisterModal.vue";
 export default {
-    name: "authorization-modal",
-    components: { 
-        RegisterModal
-    },
-    date()  {
-        return {
-            registerModalVisibility: false
-        }
-    },
+    name: 'register-modal',
     props: {
         show: {
             type: Boolean,
@@ -62,15 +45,10 @@ export default {
         }
     },
     methods: {
-        hideModal() {
-            this.$emit("update:show", false);
-        },
-        showRegisterModal() {
-            this.registerModalVisibility = true
-            this.modalVisibility = false
-            
+        hideRegisterModal() {
+            this.$emit('update:show', false)
         }
-    },
+    }
 }
 </script>
 
@@ -82,7 +60,7 @@ export default {
     padding-top: 6em;
     background-color: var(--dark-violet-alt);
 }
-.authorization {
+.register {
     position: relative;
     max-width: 536px;
     padding: 2.75em 5em;
@@ -164,7 +142,7 @@ export default {
                         cursor: pointer;
                     }
                     &:hover {
-                        color: var(--lime);                        
+                        color: var(--lime);
                     }
                 }
             }

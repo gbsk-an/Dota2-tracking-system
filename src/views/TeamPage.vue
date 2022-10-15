@@ -4,42 +4,141 @@
         <div class="team-page_title">
             <h1>Список команд</h1>
         </div>
-        <p>Многоцелевое свойство, которое определяет, как элемент должен быть показан в документе.
-
-            Применяется ко: всем элементам.
-            
-            grid
-            формирует сетку как блок.
-            inline-grid
-            формирует сетку как строчный блок.
-            subgrid
-            если ваш контейнер это ещё и элемент (вложенная сетка), то вы можете использовать это свойство для обозначения того, чтобы размеры строк/колонок были взяты из родительского элемента, а не определяли собственный</p>
+        <div class="team-table">
+            <div class="team-table-header">
+                <div class="team-table-header_tag"><p class="team-table-header_value">Ранг</p></div>
+                <div class="team-table-header_name"><p class="team-table-header_value">Название команды</p></div>
+                <div class="team-table-header_rating"><p class="team-table-header_value">Рейтинг</p></div>
+                <div class="team-table-header_wins"><p class="team-table-header_value">Победы</p></div>
+                <div class="team-table-header_losses"><p class="team-table-header_value">Проигрыши</p></div>
+            </div>            
+            <TeamTableRow 
+                v-for="opendotaTeam in opendotaTeams"
+                :opendotaTeam="opendotaTeam"
+                :key="opendotaTeam.team_id"
+            />   
+            <div class="team-table-info">
+                <p class="team-table-info_data">Team Elo Rankings</p>
+                <p>k=32, init=1000</p>
+            </div>         	
+        </div>
+        <button-white class="team-page_button">Загрузить еще</button-white>
     </div>
     <Footer />
 </template>
 
 <script>
+import axios from "axios"
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
+import TeamTableRow from '@/components/TeamTableRow.vue'
+
 export default {
     name: 'team-page',
     components: {
     Nav,
-    Footer
+    Footer,
+    TeamTableRow
 },
     data() {
         return {
-
+            opendotaTeams: [],
+            limit: 10
         }
+    },
+    methods: {
+        async fetchOpendotaTeams() {
+        try {
+          const response = await axios.get('https://api.opendota.com/api/teams', {
+            params: {
+                _limit: this.limit
+            }
+          });
+          this.opendotaTeams = response.data.slice(0, 10);
+        } catch (e) {
+          alert('Error')
+        }
+      },
+    },
+    mounted() {
+      this.fetchOpendotaTeams();
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .team-page {
-width: 100%;
+    z-index: 1;
+    padding-bottom: 3.375em;
     &_title {
+        padding-top: 9.25em;
         grid-column: 3 / span 4;
     }
+
+    &_button {
+        grid-column: 6 / span 2;
+        margin: 0 auto;
+        padding: .9em 1.25em;
+    }
+
 }
+.team-table {
+    width: 100%;
+    grid-column: 3 / span 8;
+    margin: 3.125em 0;
+    border: 2px solid var(--violet);
+    filter: drop-shadow(0px 48px 64px var(--dark-violet));
+    border-radius: 10px;
+
+    &-header {
+        display: grid;
+        gap: 0 20px; 
+        grid-template-columns: 120px 1fr 150px 150px 150px;
+        background-color: var(--violet);     
+
+        &_value {
+            text-transform: uppercase;
+        }
+        &_tag {            
+            padding: 1.25em 0 1.25em 2.5em;
+        }
+        &_name {
+            padding: 1.25em 0 1.25em 2em;
+        }
+        &_rating {
+            padding: 1.25em 0;
+        }
+        &_wins {
+            padding: 1.25em 0;
+        }
+        &_losses {
+            padding: 1.25em 2.5em 1.25em 0;
+        }
+    }
+    &-info {
+        display: flex;
+        align-items: center;
+        gap: 0 .6em;
+        padding: 1.3em 0 1.3em;
+        &_data {
+            position: relative;
+            padding-left: 3em;
+            color: var(--white);
+            &::before {
+                content: "";
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                background-image: url("@/assets/svg/Icons_04.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                left: 1em;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 </style>

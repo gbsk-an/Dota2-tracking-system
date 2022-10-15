@@ -1,11 +1,11 @@
-<template>
+<template>	
+	<!-- Content -->
 	<div class="app">
-		
-		<!-- Content -->
 		<router-view>
-				
+			
 		</router-view>
 	</div>
+	
 </template>
 
 <script>
@@ -33,6 +33,7 @@ export default {
 	--orange: #FA7000;
   	--violet: #301070;
 	--dark-violet: rgba(16, 0, 37, 0.25);
+	--dark-violet-alt-3: rgba(16, 0, 37, 0.15);
 	--bright-violet: #7540F0;
 	--dark-violet-alt: rgba(48, 16, 112, 0.8);
 	--bright-violet-gradient: linear-gradient(88.92deg, #7540F0 0.38%, #7B61FF 100%);
@@ -52,15 +53,20 @@ export default {
 	box-sizing: border-box;
 }
 
+body,
+html {
+    height: 100%;
+}
+
 body {
+	background-image: url('@/assets/background.png');
+	background-position: center;
 	font-family: 'Inter', sans-serif;
-	width: 100%;
 }
 .app {
-	background-image: url('@/assets/background.png');
-	background-repeat: no-repeat;
-	background-size: cover;
+	background: linear-gradient(0deg, #100025 0%, rgba(196, 196, 196, 0) 100%);    
 }
+
 h1 {
 	font-weight: 700;
 	font-size: 48px;

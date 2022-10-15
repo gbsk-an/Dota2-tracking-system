@@ -1,5 +1,4 @@
 <template>
-    <div class="gradient">
         <div class="wrapper-grid hero">        
             <div class="hero-logo">
                 <img src="../assets/svg/OpenDota-logo.svg" alt="OpenDota logo icon" />
@@ -12,8 +11,12 @@
                 />
             </div>
             <div class="hero-search-buttons">
-                <button-white>Список матчей</button-white>
-                <button-white>Список команд</button-white>
+                <router-link to="/MatchesPage">
+                    <button-white class="hero-search-buttons_style">Список матчей</button-white>
+                </router-link>
+                <router-link to="/TeamPage">
+                   <button-white  class="hero-search-buttons_style">Список команд</button-white> 
+                </router-link>                
             </div>
             <div class="hero-info">
                 <div class="hero-info_block">
@@ -43,7 +46,6 @@
             />
         </div>
         <Footer />
-    </div>
 </template>
 
 <script>
@@ -69,10 +71,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.gradient {
-    background: linear-gradient(0deg, #100025 0%, rgba(196, 196, 196, 0) 100%);
-    
-}
 .hero {
     margin: 0 auto;
     padding-bottom: 7.75em;
@@ -101,6 +99,10 @@ export default {
         align-items: center;
         gap: 1.2em;
         margin-bottom: 3.125em;
+
+        &_style {
+            padding: .9em 5.6em;
+        }
     }
     &-info {
         grid-column: 3 / span 8;

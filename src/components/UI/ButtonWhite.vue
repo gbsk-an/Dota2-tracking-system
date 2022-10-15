@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss" scoped>
 .button-white {
-    padding: .9em 5.6em;
+    width: fit-content;
     background: var(--white);
     border-radius: 4px;
     color: var(--black);

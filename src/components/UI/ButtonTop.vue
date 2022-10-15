@@ -9,6 +9,9 @@
 <script>
 export default {
     name: 'button-top',
+    methods: {
+
+    }
 }
 </script>
 
