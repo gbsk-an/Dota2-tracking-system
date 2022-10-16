@@ -20,7 +20,8 @@ Cистема трэкинга статистики для Dota 2
 * Отсутствие UI библиотек
 
 ## Preview
-![2022-10-17_01-06-50](https://user-images.githubusercontent.com/95074782/196055792-44dd7f60-5996-4ff1-a5f9-a638bdc7e7db.png)
+![IMG_0108](https://user-images.githubusercontent.com/95074782/196056679-4e40902d-b6ba-4214-a71b-2888756d121f.gif)
+
 
 ### Get Started
 ``` bash
