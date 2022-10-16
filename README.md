@@ -11,7 +11,7 @@ Cистема трэкинга статистики для Dota 2
 ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
 ## Features
-* Запрос данных с ресурса https://docs.opendota.com/ и испольование их для отображения списка матчей и списка команд
+* Запрос данных с ресурса https://docs.opendota.com/ и использование их для отображения списка матчей и списка команд
 * Обновление данных с предоставленного API каждую минуту
 * Организован роутинг страниц с помощью Vue-router
 * В state manager Vuex хранятся модальные окна
