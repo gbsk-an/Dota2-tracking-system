@@ -22,7 +22,7 @@ Cистема трэкинга статистики для Dota 2
 
 ## Preview
 
-<img src="https://user-images.githubusercontent.com/95074782/196023152-29501d04-a902-4102-a9f8-63a88febc56f.gif" height="500px">
+<img src="https://user-images.githubusercontent.com/95074782/196023152-29501d04-a902-4102-a9f8-63a88febc56f.gif">
 <img src="https://user-images.githubusercontent.com/95074782/196023274-4adc660b-2e1f-4634-b8ec-76c48cfd94f6.gif" height="500px">
 
 
@@ -30,9 +30,6 @@ Cистема трэкинга статистики для Dota 2
 ``` bash
 # install dependencies
 npm install
-
-# start json server
-json-server --watch db.json
 
 # serve with hot reload at localhost:8080
 npm run serve
