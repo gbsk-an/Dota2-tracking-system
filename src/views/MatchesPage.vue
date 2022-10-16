@@ -117,6 +117,7 @@ export default {
 
   &-loading {
     padding: 1em 2em;
+    margin-bottom: 20em;
   }
   &-header {
     display: grid;

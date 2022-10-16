@@ -11,6 +11,7 @@
       <router-link to="/">
         <img
           src="../assets/svg/Logo-duo.svg"
+          loading="lazy"
           class="nav-logo_image"
           alt="OpenDota logo icon"
         />

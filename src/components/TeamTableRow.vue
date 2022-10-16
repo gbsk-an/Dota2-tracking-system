@@ -2,7 +2,7 @@
   <div class="team-table-row">
     <div class="team-table-content">
       <div class="team-table-content_rank">
-        <p class="team-table-content_rank-data" :rankData="rankData">{{rank}}</p>
+        <p class="team-table-content_rank-data">{{`${rank}st`}}</p>
       </div>
       <div class="team-table-content_name">
         <div class="team-table-content_name-data">
@@ -23,6 +23,7 @@
           <p>{{ opendotaTeam.rating }}</p>
           <img
             src="../assets/svg/Status-100.svg"
+            loading="lazy"
             width="110"
             height="20"
             alt="100%"
@@ -34,6 +35,7 @@
           <p>{{ opendotaTeam.wins }}</p>
           <img
             src="../assets/svg/Status-80.svg"
+            loading="lazy"
             width="110"
             height="20"
             alt="80%"
@@ -45,6 +47,7 @@
           <p>{{ opendotaTeam.losses }}</p>
           <img
             src="../assets/svg/Status-30.svg"
+            loading="lazy"
             width="110"
             height="20"
             alt="30%"

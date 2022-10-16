@@ -4,7 +4,7 @@
       <div class="sidebar-logo">
         <button class="hide-menu-button" @click.stop="hideMenu" />
         <router-link to="/">
-          <img src="../assets/svg/Logo-duo.svg" alt="OpenDota logo icon" />
+          <img src="../assets/svg/Logo-duo.svg" loading="lazy" alt="OpenDota logo icon" />
         </router-link>
       </div>
       <div class="flex" @click.stop>

@@ -15,12 +15,12 @@
         </div>
         <div class="team-table-content_radiant">
           <div class="team-table-content_radiant-data">
-            <img src="../assets/radiant.png" />
+            <img src="../assets/heroes.png" width="64" height="36" />
           </div>
         </div>
         <div class="team-table-content_dire">
           <div class="team-table-content_dire-data">
-            <img src="../assets/radiant.png" />
+            <img src="../assets/heroes.png" width="64" height="36" />
           </div>
         </div>
       </div>

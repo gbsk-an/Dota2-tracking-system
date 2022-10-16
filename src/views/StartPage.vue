@@ -8,7 +8,7 @@
             srcset="../assets/svg/Logo-mini.svg"
             media="(max-width: 390px)"
           />
-          <img src="../assets/svg/Logo-large.svg" alt="OpenDota logo" />
+          <img src="../assets/svg/Logo-large.svg" loading="lazy" alt="OpenDota logo" />
         </picture>
       </div>
       <div class="hero-search-field">
@@ -33,6 +33,7 @@
         <div class="hero-info_block">
           <img
             src="../assets/svg/Icon_01.svg"
+            loading="lazy"
             class="hero-info_block-image"
             alt="Icon"
           />
@@ -42,6 +43,7 @@
         <div class="hero-info_block">
           <img
             src="../assets/svg/Icon_02.svg"
+            loading="lazy"
             class="hero-info_block-image"
             alt="Icon"
           />
@@ -53,6 +55,7 @@
         <div class="hero-info_block">
           <img
             src="../assets/svg/Icon_03.svg"
+            loading="lazy"
             class="hero-info_block-image"
             alt="Icon"
           />
