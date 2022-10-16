@@ -106,6 +106,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    transition: all 0.3s;
     &:hover {
       background-image: url("@/assets/svg/Close-lime.svg");
     }
@@ -156,6 +157,7 @@ export default {
           padding-right: 2.4em;
           color: var(--black);
           cursor: pointer;
+          transition: all 0.3s;
           &::after {
             content: "";
             position: absolute;
@@ -167,6 +169,7 @@ export default {
             top: 50%;
             right: 0;
             transform: translate(-50%, -50%);
+            transition: all 0.3s;
             cursor: pointer;
           }
           &:hover {

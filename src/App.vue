@@ -1,7 +1,9 @@
 <template>
   <!-- Content -->
-  <router-view>
-
+  <router-view v-slot="{ Component }">
+    <transition name="slide-down">
+      <component :is="Component" />
+    </transition>
   </router-view>
   
   <!-- Modals -->
@@ -191,7 +193,8 @@ a {
 }
 .slide-down-enter-active,
 .slide-down-leave-active {
-	transition: .3s ease-out;
+	transition: .7s ease-out;
+
 }
 .grow-in-enter-from,
 .grow-in-leave-to {

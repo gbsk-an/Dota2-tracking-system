@@ -22,6 +22,7 @@ export default {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+  transition: all 0.5s;
   cursor: pointer;
 
   &:hover {

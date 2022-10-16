@@ -167,5 +167,8 @@ export default {
       }
     }
   }
+  &_loading {
+    transition: all .4s;
+  }
 }
 </style>

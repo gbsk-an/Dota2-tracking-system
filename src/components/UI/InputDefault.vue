@@ -24,7 +24,7 @@ export default {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-
+  cursor: pointer;
   &:hover {
     border-bottom: 2px solid var(--lime);
     background-image: url("@/assets/svg/Search-lime.svg");

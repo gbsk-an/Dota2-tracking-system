@@ -106,7 +106,7 @@ export default {
       color: var(--white);
       font-weight: 700;
       transition: all 0.5s;
-
+      cursor: pointer;
       &::after {
         content: "";
         position: absolute;

@@ -6,10 +6,9 @@
         <h1>Детальная информация матча</h1>
       </div>
       <div class="match-stats">
-        <div class="match-stats_winner-banner">
-          <img src="../assets/svg/Radiant.svg" width="24" height="24" />
-          <p class="match-stats_winner-banner_title">Победа: Radiant</p>
-        </div>
+        <win-badge 
+          class="match-stats_win-badge"
+        />
         <div class="match-stats_info">
           <div class="match-stats_info_value">
             <span class="match-stats_info_value-lime">99</span>
@@ -170,11 +169,18 @@ export default {
 .match-details {
   z-index: 1;
   padding-bottom: 3.375em;
+  @media (max-width: 390px) {
+    margin: 0 auto;
+  }
 
   &_title {
     padding-top: 9.25em;
     padding-bottom: 3.1em;
     grid-column: 3 / span 8;
+    @media (max-width: 390px) {
+      padding-top: 4em;
+      text-align: center;
+    }
   }
   &_warning {
     grid-column: 4 / span 6;
@@ -243,8 +249,8 @@ export default {
     }
     &-header {
       display: grid;
-      gap: 0 14px;
-      grid-template-columns: 1fr 40px 30px 30px 30px 70px 60px 100px 50px 40px 50px 1fr;
+      gap: 0 10px;
+      grid-template-columns: auto 40px 30px 30px 30px 70px 60px 100px 50px 40px 50px auto;
       background-color: var(--violet);
 
       &_gamer {
@@ -282,24 +288,12 @@ export default {
   display: flex;
   justify-content: space-between;
   padding-bottom: 1.25em;
+  @media (max-width: 390px) {
+    flex-direction: column;
+  }
 
-  &_winner-banner {
+  &_win-badge {
     align-self: flex-end;
-    display: flex;
-    gap: 0 0.6em;
-    width: 227;
-    height: 44px;
-    padding: 0.6em;
-    border-radius: 10px;
-    background-color: var(--white);
-
-    &_title {
-      color: var(--orange);
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 24px;
-      opacity: 70%;
-    }
   }
   &_info {
     display: flex;
