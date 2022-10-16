@@ -1,4 +1,5 @@
 # itgrade-test
+Cистема трэкинга статистики для Dota 2
 
 ## Technical details
 
