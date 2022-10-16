@@ -19,12 +19,8 @@ Cистема трэкинга статистики для Dota 2
 * Использование Vue transition для анимаций
 * Отсутствие UI библиотек
 
-
 ## Preview
-
-<img src="https://user-images.githubusercontent.com/95074782/196023152-29501d04-a902-4102-a9f8-63a88febc56f.gif">
-<img src="https://user-images.githubusercontent.com/95074782/196023274-4adc660b-2e1f-4634-b8ec-76c48cfd94f6.gif" height="500px">
-
+![2022-10-17_01-06-50](https://user-images.githubusercontent.com/95074782/196055792-44dd7f60-5996-4ff1-a5f9-a638bdc7e7db.png)
 
 ### Get Started
 ``` bash
