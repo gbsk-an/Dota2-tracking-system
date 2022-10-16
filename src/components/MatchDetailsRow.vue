@@ -307,7 +307,7 @@ export default {};
 .match-details-table-content {
   display: grid;
   gap: 0 10px;
-  grid-template-columns: auto 40px 30px 30px 30px 70px 60px 100px 50px 40px 50px auto;
+  grid-template-columns: 230px 40px 30px 30px 30px 70px 60px 100px 50px 40px 50px auto;
   &_user {
     align-self: center;
     padding: 1.25em 0 1.25em 2em;

@@ -5,10 +5,14 @@
       <component :is="Component" />
     </transition>
   </router-view>
-  
+
   <!-- Modals -->
-  <AuthorizationModal v-if="isOpenedAuthModal" />
-  <RegisterModal v-if="isOpenedRegisterModal" />
+  <transition name="fade-fast">
+    <AuthorizationModal v-if="isOpenedAuthModal" />
+  </transition>
+  <transition name="fade-fast">
+    <RegisterModal v-if="isOpenedRegisterModal" />
+  </transition>
 </template>
 
 <script>
@@ -149,7 +153,7 @@ a {
   @media (max-width: 390px) {
     display: flex;
     flex-direction: column;
-    max-width: 240px;
+    max-width: 320px;
   }
 }
 .flex {
@@ -171,47 +175,54 @@ a {
 }
 .fade-enter-from,
 .fade-leave-to {
-	opacity: 0;
+  opacity: 0;
 }
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity .6s ease-out;
+  transition: opacity 0.6s ease-out;
+}
+.fade-fast-enter-from,
+.fade-fast-leave-to {
+  opacity: 0;
+}
+.fade-fast-enter-active,
+.fade-fast-leave-active {
+  transition: opacity 0.3s ease-out;
 }
 .slide-enter-from,
 .slide-leave-to {
-	opacity: 0;
-	transform: translateX(-100%);
+  opacity: 0;
+  transform: translateX(-100%);
 }
 .slide-enter-active,
 .slide-leave-active {
-	transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 .slide-down-enter-from,
 .slide-down-leave-to {
-	opacity: 0;
-	transform: translateY(300px);
+  opacity: 0;
+  transform: translateY(300px);
 }
 .slide-down-enter-active,
 .slide-down-leave-active {
-	transition: .7s ease-out;
-
+  transition: 0.7s ease-out;
 }
 .grow-in-enter-from,
 .grow-in-leave-to {
-	opacity: 0;
-	transform: scale(0.3);
+  opacity: 0;
+  transform: scale(0.3);
 }
 .grow-in-enter-active,
 .grow-in-leave-active {
-	transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 .grow-out-enter-from,
 .grow-out-leave-to {
-	opacity: 0;
-	transform: scale(1.5);
+  opacity: 0;
+  transform: scale(1.5);
 }
 .grow-out-enter-active,
 .grow-out-leave-active {
-	transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 </style>

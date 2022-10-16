@@ -7,7 +7,7 @@
       </div>
       <div class="team-table">
         <div class="team-table-header">
-          <div class="team-table-header_tag">
+          <div class="team-table-header_rank">
             <p class="team-table-header_value">Ранг</p>
           </div>
           <div class="team-table-header_name">
@@ -23,17 +23,15 @@
             <p class="team-table-header_value">Проигрыши</p>
           </div>
         </div>
-        <TransitionGroup name="fade">
-          <TeamTableRow
-            v-for="opendotaTeam in opendotaTeams"
-            :opendotaTeam="opendotaTeam"
-            :key="opendotaTeam.team_id"
-            v-if="!isTeamDataLoading"
-          />
-          <div v-else class="team-table-loading">
-            <h2>Loading...</h2>
-          </div>
-        </TransitionGroup>
+        <TeamTableRow
+          v-for="opendotaTeam in opendotaTeams"
+          :opendotaTeam="opendotaTeam"
+          :key="opendotaTeam.team_id"
+          v-if="!isTeamDataLoading"
+        />
+        <div v-else class="team-table-loading">
+          <h2>Loading...</h2>
+        </div>
         <div class="team-table-info" v-if="!isTeamDataLoading">
           <p class="team-table-info_data">Team Elo Rankings</p>
           <p>k=32, init=1000</p>
@@ -96,10 +94,17 @@ export default {
 .team-page {
   z-index: 1;
   padding-bottom: 3.375em;
+  @media (max-width: 390px) {
+    margin: 0 auto;
+  }
 
   &_title {
     padding-top: 9.25em;
     grid-column: 3 / span 4;
+    @media (max-width: 390px) {
+      padding-top: 4em;
+      text-align: center;
+    }
   }
 
   &_button {
@@ -121,21 +126,23 @@ export default {
   &-header {
     display: grid;
     gap: 0 20px;
-    grid-template-columns: 120px 1fr 150px 150px 150px;
+    grid-template-columns: 120px auto 150px 150px 150px;
     background-color: var(--violet);
+    @media (max-width: 390px) {
+      display: flex;
+      flex-direction: row;
+    }
 
     &_value {
       text-transform: uppercase;
     }
-    &_tag {
+    &_rank {
       padding: 1.25em 0 1.25em 2.5em;
     }
     &_name {
       padding: 1.25em 0 1.25em 2em;
     }
-    &_rating {
-      padding: 1.25em 0;
-    }
+    &_rating,
     &_wins {
       padding: 1.25em 0;
     }
@@ -168,7 +175,7 @@ export default {
     }
   }
   &_loading {
-    transition: all .4s;
+    transition: all 0.4s;
   }
 }
 </style>

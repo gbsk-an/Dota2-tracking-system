@@ -29,9 +29,7 @@
             <input type="checkbox" class="register-field-info_checkbox-input" />
             <label> Согласен с политикой конфиденциальности </label>
           </div>
-          <button-grey class="register-field-info_button"
-            >Регистрация</button-grey
-          >
+          <button-grey class="register-field-info_button">Регистрация</button-grey>
         </div>
       </div>
     </div>
@@ -119,6 +117,9 @@ export default {
       justify-content: space-between;
       gap: 1em 1.25em;
       margin: 2em 0;
+      @media (max-width: 390px) {
+        flex-direction: column;
+      }
       &_label {
         font-weight: 700;
         font-size: 16px;

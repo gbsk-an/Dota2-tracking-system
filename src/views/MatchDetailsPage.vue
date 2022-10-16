@@ -52,7 +52,7 @@
         <div class="match-details-table_loss">
           <div class=""><p>Radiant</p></div>
           <div class=""><p>стастистика комманды</p></div>
-          <div class="match-details-table_loss-badge"><p>Проигравшие</p></div>
+          <losers-badge />
         </div>
         <div class="match-details-table-header">
           <div class="match-details-table-header_gamer">
@@ -99,7 +99,7 @@
         <div class="match-details-table_win">
           <div class=""><p>Dire</p></div>
           <div class=""><p>стастистика комманды</p></div>
-          <div class="match-details-table_win-badge"><p>Победители</p></div>
+          <winners-badge />
         </div>
         <div class="match-details-table-header">
           <div class="match-details-table-header_gamer">
@@ -186,6 +186,9 @@ export default {
     grid-column: 4 / span 6;
     justify-self: center;
     padding: 1.25em 0;
+    @media (max-width: 390px) {
+      text-align: justify;
+    }
     &-text {
       position: relative;
       padding-left: 2.1em;
@@ -207,8 +210,17 @@ export default {
   &_buttons {
     grid-column: 5 / span 4;
     justify-self: center;
+    @media (max-width: 390px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .6em;
+    }
     :not(:last-child) {
       margin-right: 0.8em;
+      @media (max-width: 390px) {
+        margin: 0 ;
+      }
     }
   }
 
@@ -225,13 +237,6 @@ export default {
       gap: 1.25em;
       padding: 1.25em 0 1.25em 2.5em;
       background-color: transparent;
-
-      &-badge {
-        padding: 0.3em 0.9em;
-        color: var(--orange);
-        background: rgba(250, 112, 0, 0.25);
-        border-radius: 30px;
-      }
     }
     &_win {
       display: flex;
@@ -239,18 +244,11 @@ export default {
       gap: 1.25em;
       padding: 1.25em 0 1.25em 2.5em;
       background-color: transparent;
-
-      &-badge {
-        padding: 0.3em 0.9em;
-        color: var(--lime);
-        background: rgba(187, 221, 0, 0.25);
-        border-radius: 30px;
-      }
     }
     &-header {
       display: grid;
       gap: 0 10px;
-      grid-template-columns: auto 40px 30px 30px 30px 70px 60px 100px 50px 40px 50px auto;
+      grid-template-columns: 230px 40px 30px 30px 30px 70px 60px 100px 50px 40px 50px auto;
       background-color: var(--violet);
 
       &_gamer {
@@ -290,28 +288,43 @@ export default {
   padding-bottom: 1.25em;
   @media (max-width: 390px) {
     flex-direction: column;
+    gap: 1em;
   }
 
   &_win-badge {
     align-self: flex-end;
+    @media (max-width: 390px) {
+      align-self: center;
+    }
   }
   &_info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0 1em;
+    @media (max-width: 390px) {
+      align-self: center;
+    }
     &_value {
       &-lime {
         color: var(--lime);
         font-weight: 700;
         font-size: 64px;
         line-height: 77px;
+        @media (max-width: 390px) {
+          font-size: 44px;
+          line-height: 55px;
+        }
       }
       &-orange {
         color: var(--orange);
         font-weight: 700;
         font-size: 64px;
         line-height: 77px;
+        @media (max-width: 390px) {
+          font-size: 44px;
+          line-height: 55px;
+        }
       }
     }
     &-data {
@@ -323,6 +336,10 @@ export default {
     display: flex;
     gap: 0 1em;
     text-align: right;
+    @media (max-width: 390px) {
+      align-self: center;
+      text-align: center;
+    }
   }
 }
 </style>

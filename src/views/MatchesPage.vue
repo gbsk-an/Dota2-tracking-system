@@ -20,17 +20,15 @@
             <p class="matches-table-header_value">Dire</p>
           </div>
         </div>
-        <TransitionGroup name="fade">
-          <MatchesTableRow
-            v-for="opendotaMatche in opendotaMatches"
-            :opendotaMatche="opendotaMatche"
-            :key="opendotaMatche.matches_id"
-            v-if="!isMatchesDataLoading"
-          />
-          <div v-else class="matches-table-loading">
-            <h2>Loading...</h2>
-          </div>
-        </TransitionGroup>
+        <MatchesTableRow
+          v-for="opendotaMatche in opendotaMatches"
+          :opendotaMatche="opendotaMatche"
+          :key="opendotaMatche.matches_id"
+          v-if="!isMatchesDataLoading"
+        />
+        <div v-else class="matches-table-loading">
+          <h2>Loading...</h2>
+        </div>
       </div>
       <button-white class="matches-page_button">Загрузить еще</button-white>
     </div>
@@ -92,11 +90,17 @@ export default {
 .matches-page {
   z-index: 1;
   padding-bottom: 3.375em;
+  @media (max-width: 390px) {
+    margin: 0 auto;
+  }
   &_title {
     padding-top: 9.25em;
     grid-column: 3 / span 4;
+    @media (max-width: 390px) {
+      padding-top: 4em;
+      text-align: center;
+    }
   }
-
   &_button {
     grid-column: 6 / span 2;
     margin: 0 auto;
@@ -110,13 +114,14 @@ export default {
   border: 2px solid var(--violet);
   filter: drop-shadow(0px 48px 64px var(--dark-violet));
   border-radius: 10px;
+
   &-loading {
     padding: 1em 2em;
   }
   &-header {
     display: grid;
     gap: 0 20px;
-    grid-template-columns: 1fr 300px 300px 300px;
+    grid-template-columns: auto 300px 300px 300px;
     background-color: var(--violet);
 
     &_value {

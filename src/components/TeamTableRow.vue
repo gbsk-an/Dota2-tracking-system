@@ -1,8 +1,8 @@
 <template>
   <div class="team-table-row">
     <div class="team-table-content">
-      <div class="team-table-content_tag">
-        <p class="team-table-content_tag-data">{{ `${rank}st` }}</p>
+      <div class="team-table-content_rank">
+        <p class="team-table-content_rank-data" :rankData="rankData">{{rank}}</p>
       </div>
       <div class="team-table-content_name">
         <div class="team-table-content_name-data">
@@ -57,10 +57,10 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      rank: 1,
-    };
+      rank: 1
+    }
   },
   props: {
     opendotaTeam: {
@@ -93,9 +93,8 @@ export default {
 .team-table-content {
   display: grid;
   gap: 0 20px;
-  grid-template-columns: 120px 1fr 150px 150px 150px;
-
-  &_tag {
+  grid-template-columns: 120px auto 150px 150px 150px;
+  &_rank {
     align-self: center;
     padding: 1.25em 0 1.25em 2.5em;
   }
@@ -128,16 +127,10 @@ export default {
   &_wins {
     align-self: center;
     padding: 1.25em 0;
-
-    &-data {
-    }
   }
   &_losses {
     align-self: center;
     padding: 1.25em 2.5em 1.25em 0;
-
-    &-data {
-    }
   }
 }
 </style>

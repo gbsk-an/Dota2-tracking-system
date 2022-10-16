@@ -6,7 +6,9 @@ import ButtonGrey from "@/components/UI/ButtonGrey";
 import ButtonDownload from "@/components/UI/ButtonDownload";
 import LoginButton from "@/components/UI/LoginButton";
 import ButtonAnalysis from "@/components/UI/ButtonAnalysis";
-import WinBadget from '@/components/UI/WinBadget';
+import WinBadge from '@/components/UI/WinBadge';
+import LosersBadge from '@/components/UI/LosersBadge';
+import WinnersBadge from '@/components/UI/WinnersBadge';
 import InputDefault from "@/components/UI/InputDefault";
 import InputWhite from "@/components/UI/InputWhite";
 
@@ -17,8 +19,10 @@ export default [
   LoginButton,
   ButtonViolet,
   ButtonAnalysis,
-  WinBadget,
+  WinBadge,
   ButtonGrey,
+  LosersBadge,
+  WinnersBadge,
   ButtonDownload,
   InputDefault,
   InputWhite,

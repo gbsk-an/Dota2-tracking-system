@@ -12,6 +12,7 @@ export default {
 .button-analysis {
   position: relative;
   width: fit-content;
+  height: fit-content;
   padding: 1.25em 0.8em 1.25em 3.375em;
   background: var(--white);
   border-radius: 4px;

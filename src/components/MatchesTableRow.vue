@@ -6,11 +6,11 @@
           <p class="team-table-content_id-data">
             {{ opendotaMatche.match_id }}
           </p>
-          <p>17 часов назад / Immortal</p>
+          <p>{{ `${matchStartTime} часов назад / Immortal` }}</p>
         </div>
         <div class="team-table-content_duration">
           <div class="team-table-content_duration-data">
-            <p>{{ Math.trunc((opendotaMatche.duration / 60) * 100) / 100 }}</p>
+            <p>{{ matchDurationData }}</p>
           </div>
         </div>
         <div class="team-table-content_radiant">
@@ -34,6 +34,16 @@ export default {
     opendotaMatche: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    matchDurationData() {
+      return (Math.trunc((this.opendotaMatche.duration / 60) * 100) / 100)
+        .toString()
+        .replace(".", ":");
+    },
+    matchStartTime() {
+      return Math.trunc(this.opendotaMatche.start_time / 86400000);
     },
   },
 };
@@ -61,7 +71,7 @@ export default {
 .team-table-content {
   display: grid;
   gap: 0 20px;
-  grid-template-columns: 1fr 300px 300px 300px;
+  grid-template-columns: auto 300px 300px 300px;
 
   &_id {
     display: flex;
@@ -77,7 +87,7 @@ export default {
   }
   &_duration {
     align-self: center;
-    padding: 1.25em 0 1.25em 2em;
+    padding: 1.25em 0;
 
     &-data {
       display: flex;
@@ -95,23 +105,14 @@ export default {
   &_radiant {
     align-self: center;
     padding: 1.25em 0;
-
-    &-data {
-    }
   }
   &_dire {
     align-self: center;
     padding: 1.25em 0;
-
-    &-data {
-    }
   }
   &_losses {
     align-self: center;
     padding: 1.25em 2.5em 1.25em 0;
-
-    &-data {
-    }
   }
 }
 </style>

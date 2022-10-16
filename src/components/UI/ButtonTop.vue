@@ -18,15 +18,18 @@ export default {
 <style lang="scss" scoped>
 .scrollTop {
   position: relative;
-  width: 64px;
-  height: 64px;
-  padding: 1.25em;
+  width: fit-content;
+  height: fit-content;
+  padding: 2em;
   background-color: var(--bright-violet);
   border-radius: 10px;
   box-shadow: 0px 15px 30px -15px rgba(16, 0, 37, 0.5);
   transition: all 0.4s;
   cursor: pointer;
   transition: all 0.5s;
+  @media (max-width: 390px) {
+    padding: 1.25em;
+  }
   &::before {
     content: "";
     position: absolute;
