@@ -69,7 +69,7 @@ export default {
   flex: 1 0 auto;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--dark-violet-alt);
+  background-color: var(--dark-violet-alt-2);
   width: var(--sidebar-width);
   overflow: hidden;
   min-height: 100vh;

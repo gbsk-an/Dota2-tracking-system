@@ -161,6 +161,7 @@ export default {
     @media (max-width: 390px) {
       flex-direction: column;
       gap: 2.5em 0;
+      margin: 0 .5em;
     }
 
     &_block {

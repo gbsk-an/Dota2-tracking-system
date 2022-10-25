@@ -2,7 +2,7 @@
   <div class="team-table-row">
     <div class="team-table-content">
       <div class="team-table-content_rank">
-        <p class="team-table-content_rank-data">{{`${rank}st`}}</p>
+        <p class="team-table-content_rank-data">{{`1st`}}</p>
       </div>
       <div class="team-table-content_name">
         <div class="team-table-content_name-data">
@@ -60,17 +60,12 @@
 
 <script>
 export default {
-  data () {
-    return {
-      rank: 1
-    }
-  },
   props: {
     opendotaTeam: {
       type: Object,
       required: true,
     },
-  },
+  }
 };
 </script>
 
@@ -97,14 +92,23 @@ export default {
   display: grid;
   gap: 0 20px;
   grid-template-columns: 120px auto 150px 150px 150px;
+  @media (max-width: 390px) {
+    grid-template-columns: 35% 65%;
+    gap: 10px 10px;
+  }
   &_rank {
     align-self: center;
     padding: 1.25em 0 1.25em 2.5em;
+    @media (max-width: 390px) {
+      padding: 0;
+    }
   }
   &_name {
     align-self: center;
     padding: 1.25em 0 1.25em 2em;
-
+    @media (max-width: 390px) {
+      padding: 0;
+    }
     &-data {
       display: flex;
       align-items: center;
@@ -121,7 +125,9 @@ export default {
   &_rating {
     align-self: center;
     padding: 1.25em 0;
-
+    @media (max-width: 390px) {
+      padding: 0;
+    }
     &-data {
       display: flex;
       flex-direction: column;
@@ -130,10 +136,16 @@ export default {
   &_wins {
     align-self: center;
     padding: 1.25em 0;
+    @media (max-width: 390px) {
+      padding: 0;
+    }
   }
   &_losses {
     align-self: center;
     padding: 1.25em 2.5em 1.25em 0;
+    @media (max-width: 390px) {
+      padding: 0;
+    }
   }
 }
 </style>

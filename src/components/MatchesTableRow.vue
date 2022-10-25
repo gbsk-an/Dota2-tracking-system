@@ -1,6 +1,6 @@
 <template>
   <router-link to="/MatchDetailsPage">
-    <div class="team-table-row">
+    <div class="team-table-row" @click.once="fetchMatchDetails">
       <div class="team-table-content">
         <div class="team-table-content_id">
           <p class="team-table-content_id-data">
@@ -29,12 +29,17 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   props: {
     opendotaMatche: {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+    }
   },
   computed: {
     matchDurationData() {

@@ -20,6 +20,7 @@ const routes = [
     path: "/MatchDetailsPage",
     name: "match-details-page",
     component: () => import("@/views/MatchDetailsPage.vue"),
+    props: true
   },
 ];
 

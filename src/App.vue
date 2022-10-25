@@ -46,6 +46,7 @@ export default {
   --dark-violet-alt-3: rgba(16, 0, 37, 0.15);
   --bright-violet: #7540f0;
   --dark-violet-alt: rgba(48, 16, 112, 0.8);
+  --dark-violet-alt-2: rgba(48, 16, 112);
   --bright-violet-gradient: linear-gradient(
     88.92deg,
     #7540f0 0.38%,
@@ -153,7 +154,6 @@ a {
   @media (max-width: 390px) {
     display: flex;
     flex-direction: column;
-    max-width: 320px;
   }
 }
 .flex {

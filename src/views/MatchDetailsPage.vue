@@ -158,11 +158,8 @@ export default {
     NavigationOpenDota,
     MatchDetailsRow,
     FooterDefault,
-  },
-  data() {
-    return {};
-  },
-};
+  } 
+}
 </script>
 
 <style lang="scss" scoped>

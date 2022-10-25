@@ -62,6 +62,7 @@ export default {
       opendotaTeams: [],
       isTeamDataLoading: true,
       timer: "",
+      currentRank: []
     };
   },
   methods: {
@@ -129,8 +130,8 @@ export default {
     grid-template-columns: 120px auto 150px 150px 150px;
     background-color: var(--violet);
     @media (max-width: 390px) {
-      display: flex;
-      flex-direction: row;
+      grid-template-columns: 35% 65%;
+      gap: 0 10px;
     }
 
     &_value {
@@ -138,16 +139,28 @@ export default {
     }
     &_rank {
       padding: 1.25em 0 1.25em 2.5em;
+      @media (max-width: 390px) {
+        padding: 1em 0;
+      }
     }
     &_name {
       padding: 1.25em 0 1.25em 2em;
+      @media (max-width: 390px) {
+        padding: 1em 0;
+      }
     }
     &_rating,
     &_wins {
       padding: 1.25em 0;
+      @media (max-width: 390px) {
+        display: none;
+      }
     }
     &_losses {
       padding: 1.25em 2.5em 1.25em 0;
+      @media (max-width: 390px) {
+        display: none;
+      }
     }
   }
   &-info {
